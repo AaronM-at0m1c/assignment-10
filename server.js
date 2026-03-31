@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { db, User, Task } = require('./database/setup');
 require('dotenv').config();
+const cors = require('cors');
 
 const app = express();
 const PORT = 3000;
@@ -42,6 +43,9 @@ function requireAuth(req, res, next) {
         }
     }
 }
+
+//cors middleware
+app.use(cors());
 
 // Test database connection
 async function testConnection() {
