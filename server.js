@@ -69,6 +69,19 @@ app.get('/health', (req, res) => {
     });
 });
 
+// Info endpoint (assignment step #9)
+app.get('/info', (req, res) => {
+    res.json({ 
+        status: 'OK', 
+        message: 'Task Management API Information',
+        environment: process.env.NODE_ENV,
+        version: '1.0.0',
+        host: 'render',
+        authentication_required: 'true',
+        timestamp: new Date().toISOString()
+    });
+});
+
 // Root endpoint
 app.get('/', (req, res) => {
     res.json({
